@@ -1,0 +1,28 @@
+{
+  "name": "module-name",
+  "version": "10.3.1",
+  "description": "An example module to illustrate the usage of a package.json",
+  "author": "Your Name <you.name@example.org>",
+  "contributors": [
+    {
+      "name": "Foo Bar",
+      "email": "foo.bar@example.com"
+    }
+  ],
+  "dependencies": {
+    "async": "~0.8.0",
+    "bigpipe": "bigpipe/pagelet",
+    "ejs": "^2.3.1",
+    "express": "^4.2.0",
+    "plates": "https://github.com/flatiron/plates/tarball/master",
+    "primus": "*",
+    "superagent": "^1.2.0",
+    "winston": "git://github.com/flatiron/winston#master"
+  },
+  "devDependencies": {
+    "assume": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
+    "ejs": "^2.3.1",
+    "pre-commit": "*",
+    "vows": "^0.7.0"
+  }
+}
