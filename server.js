@@ -4,7 +4,7 @@ var path = require("path");
 
 
 var server = new app.Server();
-server.connection({ port: 8081 });
+server.connection({ port: process.env.PORT || 8080 });
 routeLoader(server, path.join(__dirname, "routes"));
 
 
