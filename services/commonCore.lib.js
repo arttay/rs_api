@@ -53,9 +53,9 @@ commonCore.prototype = {
 		//todo: find a better way to handle multiple sort options 
 
 		var sort = _.sortBy(data, function (num) {
-			if (sortDirection == "asc") {
+			if (sortDirection === "asc") {
 				return num[sortBy];
-			} else if (sortDirection == "desc") {
+			} else if (sortDirection === "desc") {
 				return -num[sortBy];
 			} else {
 				return num.price; //if the user does not pass a valid sort option

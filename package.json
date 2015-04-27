@@ -1,13 +1,13 @@
 {
-  "name": "module-name",
-  "version": "10.3.1",
-  "description": "An example module to illustrate the usage of a package.json",
-  "author": "Your Name <you.name@example.org>",
+  "name": "RS API",
+  "version": "0.0.3",
+  "description": "Re-writting Runescape's API",
+  "author": "Arthur Taylor ataylor@digitalriver.com",
   "main": "server.js",
   "contributors": [
     {
-      "name": "Foo Bar",
-      "email": "foo.bar@example.com"
+      "name": "Arthur Taylor",
+      "email": "ataylor@digitalriver.com"
     }
   ],
   "dependencies": {
@@ -25,8 +25,6 @@
   },
   "devDependencies": {
     "assume": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
-    "ejs": "^2.3.1",
-    "hapi": "^8.4.0",
     "pre-commit": "*",
     "vows": "^0.7.0"
   }

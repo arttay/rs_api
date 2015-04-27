@@ -54,7 +54,8 @@ module.exports = function (app) {
 			    				displayName: name,
 			    				id: item.item.id,
 			    				description: item.item.description,
-			    				price: currentPrice
+			    				price: currentPrice,
+			    				graph: "http://services.runescape.com/m=itemdb_rs/api/graph/" + item.item.id + ".json"
 			    			};
 			    			itemArr.push(obj);	
 			    		}
