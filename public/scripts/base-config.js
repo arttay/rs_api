@@ -12,5 +12,5 @@ require.config({
 });
 
 require(['base'], function(AppView) {
-
+    console.log(AppView);
 });
