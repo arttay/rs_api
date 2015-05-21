@@ -12,5 +12,8 @@ require.config({
 });
 
 require(['base'], function(AppView) {
-    console.log(AppView);
+  console.log(AppView);
+    AppView.ajax().then(function () {
+      console.log("art");
+    });
 });

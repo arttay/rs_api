@@ -7,6 +7,9 @@ module.exports = function (app) {
 		app.route({
 		    method: 'GET',
 		    path: '/seeds',
+		    config: {
+		    	jsonp: 'callback'
+		    },
 		    handler: function (request, reply) {
 		    var query 		= request.query;
 			var arr 		= [];

@@ -17,10 +17,11 @@ define([
           },
 
           ajax: function (data) {
+            console.log('asd');
             return $.ajax({
               method: "GET",
               contentType:"application/json",
-              url: "http://localhost:8080/seeds",
+              url: "http://rsapi-45854.onmodulus.net/seeds?category=seeds.allotments&sort=displgayName.desc",
               data: data
             });
           }
