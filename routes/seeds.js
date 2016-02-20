@@ -4,6 +4,7 @@ var Q = require("q");
 var _ = require("underscore");
 
 module.exports = function (app) {
+	/*
 		app.route({
 		    method: 'GET',
 		    path: '/seeds',
@@ -28,11 +29,11 @@ module.exports = function (app) {
 			    		//user passed a top level category(seeds, ammo, bolts ect)
 			    		for (var key in category) {
 			    			var item = category[key]
-			    			if(!_.isEmpty(category[key])) {
+			    			if(!_.isEmpty(item) {
 			    				for (var ke in item) {
 			    					//todo: make this loop more dynamic
 			    					//todo: also, I really really hate this, make it better
-			    					arr.push(api.itemPrice.getPrice(item[ke]));
+			    					arr.push(api.itemPrice.getPrice(item[ke])); //grabs the price of an item from the current api and pushes it into a array as a promise 
 				    			}
 			    			}
 			    		}
@@ -50,6 +51,7 @@ module.exports = function (app) {
 			    			var name = item.item.name
 			    			var currentPrice = item.item.current.price;
 			    			if(typeof currentPrice === "string") {
+			    				//price is in the format of "100.6k"
 			    				currentPrice = parseInt(api.commonCore.convertToGold(currentPrice));
 			    			}
 
@@ -72,5 +74,7 @@ module.exports = function (app) {
 			        
 		    }
 		});
+*/
 }
+
 

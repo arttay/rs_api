@@ -4,7 +4,7 @@ var path = require("path");
 
 
 var server = new app.Server();
-server.connection({ 
+server.connection({
 	port: process.env.PORT || 8080,
 	routes: { 
 			cors: true

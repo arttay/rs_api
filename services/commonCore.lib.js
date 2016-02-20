@@ -9,29 +9,34 @@ var commonCore = function () {
 };
 
 commonCore.prototype = {
-	searchJsonObject: function (theObject, attr) {
+	searchJsonObject: function (obj, attr) {
 		var result = null;
-	    if (theObject instanceof Array) {
-	        for(var i = 0; i < theObject.length; i++) {
-	            result = getObject(theObject[i]);
+	    if (obj instanceof Array) {
+	        for(var i = 0; i < obj.length; i++) {
+	            result = getObject(obj[i]);
 	        }
 	    }
 	    else {
-	        for (var prop in theObject) {
+	        for (var prop in obj) {
 	            if (prop == attr) {
-	            	return theObject[prop];
+	            	return obj[prop];
 	            }
-	            if (theObject[prop] instanceof Object || theObject[prop] instanceof Array) {
-	            	 result = this.searchJsonObject(theObject[prop], attr);
+	            if (obj[prop] instanceof Object || obj[prop] instanceof Array) {
+	            	 result = this.searchJsonObject(obj[prop], attr);
 	            }
 	        }
 	    }
 	    return result;
 	},
 	convertToGold: function (gold) {
-		if (gold.lastIndexOf("k") !== -1) {
-			gold = gold.substring(0, gold.lastIndexOf("k"));
+		var li = gold.lastIndexOf("k");
+		var m = gold.lastIndexOf("m");
+		if (li !== -1) {
+			gold = gold.substring(0, li);
 			return gold.split(".").join("") + "00";
+		} else if (m !== -1) {
+			gold = gold.substring(0, m);
+			return gold.split(".").join("") + "00000";
 		} else {
 			return gold.split(",").join("");
 		}
