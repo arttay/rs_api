@@ -1,0 +1,121 @@
+{
+	"category": {
+		"seeds": {
+			"herb": [
+				{
+					"name": "guam",
+					"id":  "5291"
+				},{
+					"name": "marrentill",
+					"id":  "5096"
+				},{
+					"name": "tarromin",
+					"id":  "5293"
+				},{
+					"name": "harralander",
+					"id":  "5294"
+				},{
+					"name": "ranarr",
+					"id":  "5295"
+				},{
+					"name": "toadflax",
+					"id":  "5296"
+				},{
+					"name": "irit",
+					"id":  "5297"
+				},{
+					"name": "Wergali",
+					"id":  "14870"
+				},{
+					"name": "Avantoe",
+					"id":  "5298"
+				},{
+					"name": "Kwuarm",
+					"id":  "5299"
+				},{
+					"name": "Snapdragon",
+					"id":  "5300"
+				},{
+					"name": "Cadantine",
+					"id":  "5301"
+				},{
+					"name": "Lantadyme",
+					"id":  "5302"
+				},{
+					"name": "Dwarf_weed",
+					"id":  "5303"
+				},{
+					"name": "Torstol",
+					"id":  "5304"
+				},{
+					"name": "Fellstalk",
+					"id":  "21621"
+				}
+			],
+			"wood_trees": {
+				"acorn": "5312",
+				"Elder": "31437",
+				"Magic": "5316",
+				"Maple": "5314",
+				"Willow": "5313",
+				"Yew": "5309"
+			},
+			"fruit_trees": {
+				"apple_tree": "5283",
+				"Banana_tree": "5284",
+				"Curry_tree": "5286",
+				"Orange_tree": "5285",
+				"Palm_tree": "5289",
+				"Papaya_tree": "5288",
+				"Pineapple": "5287"
+			},
+			"allotments": {
+				"Cabbage": "5324",
+				"Fly_trap": "28260",
+				"Onion": "5319",
+				"Potato": "5318",
+				"Snape_grass": "28262",
+				"Strawberry": "5323",
+				"Sunchoke": "28261",
+				"Sweetcorn": "5320",
+				"Tomato": "5322",
+				"Watermelon": "5321"
+			},
+			"flowers": {
+				"Barberry": "28266",
+				"Butterfly_flower": "28265",
+				"Limpwurt": "5100",
+				"Marigold": "5096",
+				"Nasturtium": "5098",
+				"Rosemary": "5097",
+				"Woad": "5099"
+			},
+			"hops": {
+				"Asgarnian": "5308",
+				"Barley": "5305",
+				"Grapevine": "28264",
+				"Hammerstone": "5307",
+				"Jute": "5306",
+				"Krandorian": "5310",
+				"Wildblood": "5311",
+				"Yanillian": "5309"
+
+			},
+			"bushes": {
+				"Cadavaberry": "5102",
+				"Dwellberry": "5103",
+				"Jangerberry": "5104",
+				"Poison_ivy": "5106",
+				"Redberry": "5101",
+				"Whiteberry": "5105",
+				"Wishing_well_bush": "28267"
+			},
+			"cacti": {
+
+			},
+			"Special_plants": {
+				"Belladonna": "5281"
+			}
+		}
+	}
+}
