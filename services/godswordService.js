@@ -25,59 +25,55 @@ Godsword.prototype = {
 		foo.push(this.hilts(arr.blades));
 
 		return Q.all(foo).then(function (data) {
-			var shards = data[0];
-			var hilts = data[1];
-			var builtBlade = data[2];
-			var shardPrice = this.combine(shards);
-			var buildPrice = {
-				armadyl: parseInt(shardPrice) + parseInt(hilts["Armadyl hilt"].price),
-				bandos: parseInt(shardPrice) + parseInt(hilts["Bandos hilt"].price),
-				saradomin: parseInt(shardPrice) + parseInt(hilts["Saradomin hilt"].price),
-				zamorak: parseInt(shardPrice) + parseInt(hilts["Zamorak hilt"].price)
-			}
+			var shards 		= data[0];
+			var hilts 		= data[1];
+			var builtBlade 	= data[2];
+			var shardPrice 	= this.combine(shards);
+
 			return {
-				armadyl: {
-					
-					shardPrice: Number(shardPrice).format(),
-					hiltPrice: Number(hilts["Armadyl hilt"].price).format(),
-					bladePrice: Number(buildPrice.armadyl).format(),
-					godSwordPrice: Number(builtBlade["Armadyl godsword"].price).format(),
-					diff: Number(builtBlade["Armadyl godsword"].price - buildPrice.armadyl).format()
-				},
-				bandos: {
-					
-					shardPrice: Number(shardPrice).format(),
-					hiltPrice: Number(hilts["Bandos hilt"].price).format(),
-					bladePrice: Number(buildPrice.bandos).format(),
-					godSwordPrice: Number(builtBlade["Bandos godsword"].price).format(),
-					diff: Number(builtBlade["Bandos godsword"].price - buildPrice.bandos).format()
-				},
-				saradomin: {
-					
-					shardPrice: Number(shardPrice).format(),
-					hiltPrice: Number(hilts["Saradomin hilt"].price).format(),
-					bladePrice: Number(buildPrice.saradomin).format(),
-					godSwordPrice: Number(builtBlade["Saradomin godsword"].price).format(),
-					diff: Number(builtBlade["Saradomin godsword"].price - buildPrice.saradomin).format()
-				}, 
-				zamorak: {
-					
-					shardPrice: Number(shardPrice).format(),
-					hiltPrice: Number(hilts["Zamorak hilt"].price).format(),
-					bladePrice: Number(buildPrice.zamorak).format(),
-					godSwordPrice: Number(builtBlade["Zamorak godsword"].price).format(),
-					diff: Number(builtBlade["Zamorak godsword"].price - buildPrice.zamorak).format()
-				}
+				armadyl: this.buildReturnObj({
+					shardPrice: shardPrice,
+					hilt: hilts["Armadyl hilt"],
+					buildPrice: this.buildGodsword(hilts["Armadyl hilt"], shardPrice),
+					buildBlade: builtBlade["Armadyl godsword"]
+				}),
+				bandos: this.buildReturnObj({
+					shardPrice: shardPrice,
+					hilt: hilts["Bandos hilt"],
+					buildPrice: this.buildGodsword(hilts["Bandos hilt"], shardPrice),
+					buildBlade: builtBlade["Bandos godsword"]
+				}),
+				saradomin: this.buildReturnObj({
+					shardPrice: shardPrice,
+					hilt: hilts["Saradomin hilt"],
+					buildPrice: this.buildGodsword(hilts["Saradomin hilt"], shardPrice),
+					buildBlade: builtBlade["Saradomin godsword"]
+				}), 
+				zamorak: this.buildReturnObj({
+					shardPrice: shardPrice,
+					hilt: hilts["Zamorak hilt"],
+					buildPrice: this.buildGodsword(hilts["Zamorak hilt"], shardPrice),
+					buildBlade: builtBlade["Zamorak godsword"]
+				})
 
 			}
-
-
-
-
 		}.bind(this));
 		
 
 	},
+	buildGodsword: function (hilt, shardPrice) {
+		return parseInt(shardPrice) + parseInt(hilt.price);
+	},
+	buildReturnObj: function (swordObj) {
+		return {
+			shardPrice: Number(swordObj.shardPrice).format(),
+			hiltPrice: Number(swordObj.hilt.price).format(),
+			bladePrice: Number(swordObj.buildPrice).format(),
+			godSwordPrice: Number(swordObj.buildBlade.price).format(),
+			diff: Number(swordObj.buildBlade.price - swordObj.buildPrice).format()
+		}
+	},
+
 	shards: function (data) {
 		var arr = [];
 		var returnData = [];
@@ -86,15 +82,14 @@ Godsword.prototype = {
 		}.bind(this));
 
 		return Q.all(arr).then(function (data) {
-			data.forEach(function (data) {
-				var json = JSON.parse(data);
-				returnData.push({
+			return data.reduce((sub, item) => {
+				var json = JSON.parse(item);
+				sub.push({
 					name: json.item.name,
 					price: this.commonCore.convertToGold(json.item.current.price)
-				});
-
-			}.bind(this));
-			return returnData;
+				})
+				return sub;
+			}, []);
 		}.bind(this))
 	},
 	hilts: function (data) {
@@ -105,15 +100,16 @@ Godsword.prototype = {
 		}.bind(this));
 
 		return Q.all(arr).then(function (data) {
-			data.forEach(function (data) {
-				var json = JSON.parse(data);
-				returnData[json.item.name] = {
+			return data.reduce((sub, item) => {
+				var json = JSON.parse(item)
+				
+				sub[json.item.name] = {
 					name: json.item.name,
 					price: this.commonCore.convertToGold(json.item.current.price)
-				}
+				};
 
-			}.bind(this));
-			return returnData;
+				return sub;
+			}, []);
 		}.bind(this))
 	},
 	combine: function (arr) {
