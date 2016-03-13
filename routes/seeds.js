@@ -4,7 +4,7 @@ var Q = require("q");
 var _ = require("underscore");
 
 module.exports = function (app) {
-	/*
+	
 		app.route({
 		    method: 'GET',
 		    path: '/seeds',
@@ -29,7 +29,7 @@ module.exports = function (app) {
 			    		//user passed a top level category(seeds, ammo, bolts ect)
 			    		for (var key in category) {
 			    			var item = category[key]
-			    			if(!_.isEmpty(item) {
+			    			if(!_.isEmpty(item)) {
 			    				for (var ke in item) {
 			    					//todo: make this loop more dynamic
 			    					//todo: also, I really really hate this, make it better
@@ -37,14 +37,16 @@ module.exports = function (app) {
 				    			}
 			    			}
 			    		}
-			    	} else {
+			    	}
+
+			    	 else {
 			    		data = api.commonCore.searchJsonObject(category, subCategory);
 			    		for (var key in data) {
 			    			arr.push(api.itemPrice.getPrice(data[key]));
 			    		}
 			    	}
 			    	
-
+			    	
 			    	Q.all(arr).done(function (data) {
 			    		for (var key in data) {
 			    			var item = JSON.parse(data[key]);
@@ -67,6 +69,7 @@ module.exports = function (app) {
 			    		var returnData = api.commonCore.optionsRouter(itemArr, query);
 			    		returnData === null ? reply(itemArr) : reply(returnData);
 			    	});
+	
 			   	} else {
 					reply(itemArr);   
 			    }
@@ -74,7 +77,7 @@ module.exports = function (app) {
 			        
 		    }
 		});
-*/
+
 }
 
 
